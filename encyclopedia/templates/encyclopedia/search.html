@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Search</h1>
+    <ul>
+        {% if num == 0 %}
+            <p>We can't find the entry you're looking for......</p>
+        {% else %}
+            {% if num == 1%}
+                <p>There's 1 result!</p>
+            {% else %}
+                <p>There're {{num}} results!</p>
+            {% endif %}
+            {% for entry in entries %}
+                <a href="wiki/{{entry}}" class="list"><li>{{ entry }}</li></a>
+            {% endfor %}
+        {% endif %}
+    </ul>
+{% endblock %}
